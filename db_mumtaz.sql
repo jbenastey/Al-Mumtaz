@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2018 at 03:27 AM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 5.6.15
+-- Generation Time: May 01, 2018 at 10:29 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 5.6.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -41,11 +43,10 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`kode_buku`, `id_kategori`, `judul_buku`, `penerbit`, `pengarang`, `harga`, `jumlah`) VALUES
-('AG1', 1, 'Fiqih', 'Erlangga', 'Abdul Somad', 30000, 47),
-('KOM1', 2, 'Sistem Digital', 'Informatika', 'Rinaldi Munir', 50000, 43),
-('AG2', 1, 'Akidah Akhlak', 'Erlangga', 'Jihad', 40000, 20),
-('SC1', 3, 'Biologi', 'Mayora', 'Rahmad', 30000, 61),
-('sfdf', 1, 'sdfs', 'sdfd', 'fsd', 234234, 43);
+('AG1', 1, 'Fiqih', 'Erlangga', 'Abdul Somad', 30000, 46),
+('KOM1', 2, 'Sistem Digital', 'Informatika', 'Rinaldi Munir', 50000, 42),
+('AG2', 1, 'Akidah Akhlak', 'Erlangga', 'Jihad', 40000, 15),
+('SC1', 3, 'Biologi', 'Mayora', 'Rahmad', 30000, 61);
 
 -- --------------------------------------------------------
 
@@ -136,7 +137,7 @@ CREATE TABLE `operator` (
 --
 
 INSERT INTO `operator` (`operator_id`, `nama_lengkap`, `username`, `password`, `last_login`, `level`) VALUES
-(7, 'Jihad', 'kelompok3', '21232f297a57a5a743894a0e4a801fc3', '2018-01-12', 'admin'),
+(7, 'Jihad', 'kelompok3', '21232f297a57a5a743894a0e4a801fc3', '2018-04-29', 'admin'),
 (6, 'Admin', 'superadmin', '0192023a7bbd73250516f069df18b500', '2018-01-11', 'superadmin');
 
 -- --------------------------------------------------------
@@ -427,7 +428,27 @@ INSERT INTO `tabel_log` (`log_id`, `log_time`, `log_user`, `log_tipe`, `log_desc
 (245, '2018-01-11 22:05:34', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
 (246, '2018-01-11 23:12:06', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
 (247, '2018-01-12 01:51:38', 'kelompok3', 0, 'Melakukan login '),
-(248, '2018-01-12 02:13:24', 'kelompok3', 5, 'Transaksi Penjualan Buku');
+(248, '2018-01-12 02:13:24', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
+(249, '2018-04-27 10:10:20', 'kelompok3', 0, 'Melakukan login '),
+(250, '2018-04-27 10:11:44', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
+(251, '2018-04-27 10:18:25', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
+(252, '2018-04-27 13:43:53', 'kelompok3', 0, 'Melakukan login '),
+(253, '2018-04-27 13:45:53', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
+(254, '2018-04-27 13:47:00', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
+(255, '2018-04-27 14:23:26', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
+(256, '2018-04-29 13:01:42', 'kelompok3', 0, 'Melakukan login '),
+(257, '2018-04-29 13:16:48', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
+(258, '2018-04-29 13:17:10', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
+(259, '2018-04-29 13:19:05', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
+(260, '2018-04-29 13:19:52', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
+(261, '2018-04-29 13:21:28', 'kelompok3', 5, 'Transaksi Penjualan Buku'),
+(262, '2018-04-29 13:33:34', 'kelompok3', NULL, 'Transaksi Pemasukan Buku'),
+(263, '2018-04-29 13:44:53', 'kelompok3', 6, 'Mencetak laporan periode'),
+(264, '2018-04-29 13:46:01', 'kelompok3', 6, 'Mencetak laporan periode'),
+(265, '2018-04-29 13:46:11', 'kelompok3', 6, 'Mencetak laporan periode'),
+(266, '2018-04-29 13:46:23', 'kelompok3', 6, 'Mencetak laporan periode'),
+(267, '2018-04-29 13:46:29', 'kelompok3', 6, 'Mencetak laporan periode'),
+(268, '2018-04-29 13:47:22', 'kelompok3', 4, 'Menghapus data buku');
 
 -- --------------------------------------------------------
 
@@ -463,7 +484,12 @@ INSERT INTO `transaksi` (`transaksi_id`, `tanggal`, `operator_id`, `id_member`, 
 (11, '2018-01-11', 7, 0, 140000, 0, 140000),
 (12, '2018-01-11', 7, 1, 140000, 14000, 126000),
 (13, '2018-01-12', 7, 3, 140000, 14000, 126000),
-(14, '2018-01-12', 7, 1, 160000, 16000, 144000);
+(14, '2018-01-12', 7, 1, 160000, 16000, 144000),
+(15, '2018-04-27', 7, 3, 60000, 6000, 54000),
+(16, '2018-04-27', 7, 1, 80000, 8000, 72000),
+(17, '2018-04-27', 7, 0, 234234, 0, 234234),
+(18, '2018-04-27', 7, 1, 50000, 5000, 45000),
+(19, '2018-04-27', 7, 3, 150000, 15000, 135000);
 
 -- --------------------------------------------------------
 
@@ -472,26 +498,57 @@ INSERT INTO `transaksi` (`transaksi_id`, `tanggal`, `operator_id`, `id_member`, 
 --
 
 CREATE TABLE `transaksi_beli` (
-  `id_transaksi_beli` int(11) NOT NULL,
-  `id_supplier` varchar(11) NOT NULL,
-  `judul_buku` varchar(50) NOT NULL,
-  `harga_beli` int(11) NOT NULL,
-  `jumlah` int(11) NOT NULL,
-  `total` int(11) NOT NULL,
+  `transaksi_id` int(11) NOT NULL,
   `tanggal` date NOT NULL,
-  `status` enum('0','1') NOT NULL
+  `id_supplier` int(11) NOT NULL,
+  `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `transaksi_beli`
 --
 
-INSERT INTO `transaksi_beli` (`id_transaksi_beli`, `id_supplier`, `judul_buku`, `harga_beli`, `jumlah`, `total`, `tanggal`, `status`) VALUES
-(1, '1', 'a', 40000, 2, 80000, '2018-01-10', '1'),
-(2, '1', 'a', 50000, 5, 250000, '2018-01-10', '1'),
-(3, '1', 'asdad', 30000, 8, 240000, '2018-01-10', '1'),
-(4, '1', 'Kedelai', 40000, 30, 1200000, '2018-01-10', '0'),
-(5, '1', 'DIA', 40000, 20, 800000, '2018-01-11', '0');
+INSERT INTO `transaksi_beli` (`transaksi_id`, `tanggal`, `id_supplier`, `total`) VALUES
+(1, '2018-04-29', 0, 0),
+(2, '2018-04-29', 0, 0),
+(3, '2018-04-29', 0, 20000),
+(4, '2018-04-29', 0, 20000),
+(5, '2018-04-29', 0, 30000),
+(6, '2018-04-29', 0, 30000),
+(7, '2018-04-29', 0, 84000),
+(8, '2018-04-29', 3, 33000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksi_beli_detail`
+--
+
+CREATE TABLE `transaksi_beli_detail` (
+  `id_transaksi_beli` int(11) NOT NULL,
+  `judul_buku` varchar(50) NOT NULL,
+  `harga_beli` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `status` enum('0','1') NOT NULL,
+  `transaksi_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaksi_beli_detail`
+--
+
+INSERT INTO `transaksi_beli_detail` (`id_transaksi_beli`, `judul_buku`, `harga_beli`, `jumlah`, `total`, `tanggal`, `status`, `transaksi_id`) VALUES
+(1, 'a', 40000, 2, 80000, '2018-01-10', '1', 0),
+(2, 'a', 50000, 5, 250000, '2018-01-10', '1', 0),
+(3, 'asdad', 30000, 8, 240000, '2018-01-10', '1', 0),
+(5, 'DIA', 40000, 20, 800000, '2018-01-11', '1', 2),
+(6, 'Sejarah Peradaban Islam', 50000, 30, 1500000, '2018-04-27', '1', 2),
+(7, 'Buku', 10000, 2, 20000, '2018-04-29', '1', 3),
+(8, 'Buku2', 10000, 3, 30000, '2018-04-29', '1', 5),
+(9, 'Buku3', 21000, 4, 84000, '2018-04-29', '1', 7),
+(10, '322', 11000, 3, 33000, '2018-04-29', '1', 8);
 
 -- --------------------------------------------------------
 
@@ -536,7 +593,12 @@ INSERT INTO `transaksi_detail` (`t_detail_id`, `transaksi_id`, `kode_buku`, `qty
 (19, 14, 'AG1', 2, 30000, '1', '2018-01-12', 60000),
 (20, 14, 'AG2', 1, 40000, '1', '2018-01-12', 40000),
 (21, 14, 'AG1', 2, 30000, '1', '2018-01-12', 60000),
-(22, 0, 'AG1', 2, 30000, '0', '2018-01-12', 60000);
+(22, 15, 'AG1', 2, 30000, '1', '2018-01-12', 60000),
+(23, 16, 'AG2', 2, 40000, '1', '2018-04-27', 80000),
+(24, 17, 'sfdf', 1, 234234, '1', '2018-04-27', 234234),
+(25, 18, 'KOM1', 1, 50000, '1', '2018-04-27', 50000),
+(26, 19, 'AG2', 3, 40000, '1', '2018-04-27', 120000),
+(27, 19, 'AG1', 1, 30000, '1', '2018-04-27', 30000);
 
 --
 -- Triggers `transaksi_detail`
@@ -604,6 +666,12 @@ ALTER TABLE `transaksi`
 -- Indexes for table `transaksi_beli`
 --
 ALTER TABLE `transaksi_beli`
+  ADD PRIMARY KEY (`transaksi_id`);
+
+--
+-- Indexes for table `transaksi_beli_detail`
+--
+ALTER TABLE `transaksi_beli_detail`
   ADD PRIMARY KEY (`id_transaksi_beli`);
 
 --
@@ -621,26 +689,38 @@ ALTER TABLE `transaksi_detail`
 --
 ALTER TABLE `operator`
   MODIFY `operator_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `tabel_log`
 --
 ALTER TABLE `tabel_log`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=269;
+
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `transaksi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `transaksi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
 --
 -- AUTO_INCREMENT for table `transaksi_beli`
 --
 ALTER TABLE `transaksi_beli`
-  MODIFY `id_transaksi_beli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `transaksi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `transaksi_beli_detail`
+--
+ALTER TABLE `transaksi_beli_detail`
+  MODIFY `id_transaksi_beli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  MODIFY `t_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `t_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
